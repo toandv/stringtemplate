@@ -37,7 +37,7 @@ public class StringTemplate implements Template {
 			}
 		}
 
-		if (end < text.length() - 1) {
+		if (end < text.length()) {
 			String last = text.substring(end, text.length());
 			parts.add(last);
 		}
@@ -65,7 +65,7 @@ public class StringTemplate implements Template {
 			firstVarIndex = text.indexOf("${", endVarIndex);
 		}
 
-		if (end < text.length() - 1) {
+		if (end < text.length()) {
 			String last = text.substring(end, text.length());
 			parts.add(last);
 		}
