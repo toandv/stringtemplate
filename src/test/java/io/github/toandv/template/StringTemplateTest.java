@@ -8,10 +8,10 @@ import org.junit.Test;
 
 public class StringTemplateTest {
 
-	Template template = new StringTemplate("This is a simple ${var0} for parsing ${var1}.");
 
 	@Test
 	public void testRender() {
+		Template template = new StringTemplate("This is a simple ${var0} for parsing ${var1}.");
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("var0", "template engine");
 		parameters.put("var1", "text");
