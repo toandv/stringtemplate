@@ -8,7 +8,6 @@ import org.junit.Test;
 
 public class StringTemplateTest {
 
-
 	@Test
 	public void testRender() {
 		Template template = new StringTemplate("This is a simple ${var0} for parsing ${var1}.");
@@ -17,5 +16,18 @@ public class StringTemplateTest {
 		parameters.put("var1", "text");
 		String text = template.render(parameters);
 		Assert.assertEquals("This is a simple template engine for parsing text.", text);
+	}
+
+	@Test
+	public void testRender1() {
+		String text1 = "This is a simple ${var0} for parsing ${var1}.";
+		for (int i = 0; i < 10; i++) {
+			text1 += text1;
+		}
+		Template template = new StringTemplate(text1);
+		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("var0", "template engine");
+		parameters.put("var1", "text");
+		String text = template.render(parameters);
 	}
 }
