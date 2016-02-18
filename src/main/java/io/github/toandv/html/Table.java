@@ -14,7 +14,7 @@ public class Table {
         return this;
     }
 
-    public Table addRow(List<Row> rows) {
+    public Table addRows(List<Row> rows) {
         rows.addAll(rows);
         return this;
     }
