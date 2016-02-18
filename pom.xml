@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.toandv</groupId>
 	<artifactId>template</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 
 	<distributionManagement>
 		<repository>
-			<id>internal.repo</id>
+			<id>template-mvn-repo</id>
 			<name>Temporary Staging Repository</name>
 			<url>file://${project.build.directory}/mvn-repo</url>
 		</repository>
@@ -22,6 +22,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
