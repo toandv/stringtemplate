@@ -14,6 +14,11 @@ public class Table {
         return this;
     }
 
+    public Table addRow(List<Row> rows) {
+        rows.addAll(rows);
+        return this;
+    }
+
     public Table css(String css) {
         this.css = " " + css;
         return this;

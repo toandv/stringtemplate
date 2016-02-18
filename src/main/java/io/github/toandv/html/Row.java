@@ -19,6 +19,11 @@ public class Row {
         return this;
     }
 
+    public Row addCells(List<Cell> cells) {
+        cells.addAll(cells);
+        return this;
+    }
+
     @Override
     public String toString() {
         return "<tr" + css + ">\n" + cells.stream().map(cell -> cell.toString()).collect(Collectors.joining("\n"))
