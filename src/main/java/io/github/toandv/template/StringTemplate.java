@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import com.google.common.collect.ImmutableSet;
@@ -22,6 +23,7 @@ public class StringTemplate implements Template {
     private Set<String> parameters = new HashSet<>();
 
     public StringTemplate(String text) {
+        Objects.requireNonNull(text, "Text must not be null.");
         this.text = text;
         parseW(text);
     }
