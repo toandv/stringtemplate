@@ -20,7 +20,7 @@ public class Row {
     }
 
     public Row addCells(List<Cell> cells) {
-        cells.addAll(cells);
+        this.cells.addAll(cells);
         return this;
     }
 

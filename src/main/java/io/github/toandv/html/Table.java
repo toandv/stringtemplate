@@ -15,7 +15,7 @@ public class Table {
     }
 
     public Table addRows(List<Row> rows) {
-        rows.addAll(rows);
+        this.rows.addAll(rows);
         return this;
     }
 
