@@ -1,16 +1,21 @@
 package io.github.toandv.html;
 
-public class Cell {
-    String value;
+import java.util.Objects;
 
-    String css = "";
+public class Cell {
+
+    protected String value;
+
+    protected String css = "";
 
     public Cell css(String css) {
+        Objects.requireNonNull(css);
         this.css = " " + css;
         return this;
     }
 
     public Cell(String value) {
+        Objects.requireNonNull(value);
         this.value = value;
     }
 

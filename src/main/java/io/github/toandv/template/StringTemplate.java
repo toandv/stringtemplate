@@ -30,8 +30,8 @@ public class StringTemplate implements Template {
 
     // for loop version
     void parseF(String text) {
-        int start = 0;
-        int end = 0;
+        int startIndex = 0;
+        int endIndex = 0;
 
         for (int i = 0; i < text.length() - 1; i++) {
             if (text.charAt(i) == '$' && text.charAt(i + 1) == '{') {
@@ -40,52 +40,52 @@ public class StringTemplate implements Template {
                     j = text.length() - 1;
                 }
                 if (j != -1) {
-                    String pureText = text.substring(start, i);
-                    String param = text.substring(i, j + 1);
-                    parts.add(pureText);
-                    parts.add(param);
-                    collectParam(param);
-                    start = j + 1;
-                    end = start;
+                    String textPart = text.substring(startIndex, i);
+                    String paramPart = text.substring(i, j + 1);
+                    parts.add(textPart);
+                    parts.add(paramPart);
+                    collectParameterName(paramPart);
+                    startIndex = j + 1;
+                    endIndex = startIndex;
                 }
             }
         }
 
-        if (end < text.length()) {
-            String last = text.substring(end, text.length());
+        if (endIndex < text.length()) {
+            String last = text.substring(endIndex, text.length());
             parts.add(last);
         }
 
     }
 
-    private void collectParam(String param) {
-        parameters.add(param.substring(2, param.length() - 1));
+    private void collectParameterName(String wrappedParameterName) {
+        parameters.add(wrappedParameterName.substring(2, wrappedParameterName.length() - 1));
     }
 
     // while loop version
     private void parseW(String text) {
-        int start = 0;
-        int end = 0;
-        int firstVarIndex = text.indexOf("${");
-        while (firstVarIndex != -1) {
-            int endVarIndex = text.indexOf('}', firstVarIndex);
-            if (endVarIndex == -1) {
+        int startIndex = 0;
+        int endIndex = 0;
+        int firstParamIndex = text.indexOf("${");
+        while (firstParamIndex != -1) {
+            int endParamIndex = text.indexOf('}', firstParamIndex);
+            if (endParamIndex == -1) {
                 break;
             }
-            if (endVarIndex != -1) {
-                String pureText = text.substring(start, firstVarIndex);
-                String param = text.substring(firstVarIndex, endVarIndex + 1);
-                parts.add(pureText);
-                parts.add(param);
-                collectParam(param);
-                start = endVarIndex + 1;
-                end = start;
+            if (endParamIndex != -1) {
+                String textPart = text.substring(startIndex, firstParamIndex);
+                String paramPart = text.substring(firstParamIndex, endParamIndex + 1);
+                parts.add(textPart);
+                parts.add(paramPart);
+                collectParameterName(paramPart);
+                startIndex = endParamIndex + 1;
+                endIndex = startIndex;
             }
-            firstVarIndex = text.indexOf("${", endVarIndex);
+            firstParamIndex = text.indexOf("${", endParamIndex);
         }
 
-        if (end < text.length()) {
-            String last = text.substring(end, text.length());
+        if (endIndex < text.length()) {
+            String last = text.substring(endIndex, text.length());
             parts.add(last);
         }
     }
@@ -108,7 +108,7 @@ public class StringTemplate implements Template {
     }
 
     @Override
-    public Set<String> getParameters() {
+    public Set<String> getParameterNames() {
         return ImmutableSet.copyOf(parameters);
     }
 

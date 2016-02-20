@@ -14,5 +14,5 @@ import java.util.Set;
 public interface Template {
     String render(Map<String, Object> parameters);
 
-    Set<String> getParameters();
+    Set<String> getParameterNames();
 }

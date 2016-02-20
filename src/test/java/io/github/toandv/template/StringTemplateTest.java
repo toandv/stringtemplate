@@ -18,7 +18,7 @@ public class StringTemplateTest {
         parameters.put("var1", "text");
         String text = template.render(parameters);
         Assert.assertEquals("This is a simple template engine for parsing text.", text);
-        Assert.assertEquals(ImmutableSet.of("var0", "var1"), template.getParameters());
+        Assert.assertEquals(ImmutableSet.of("var0", "var1"), template.getParameterNames());
     }
 
     @Test
@@ -34,7 +34,7 @@ public class StringTemplateTest {
         parameters.put("var1", "text");
         String text = template.render(parameters);
         System.out.println(text.length());
-        System.out.println(template.getParameters());
+        System.out.println(template.getParameterNames());
         long elapsedTime = System.nanoTime() - start;
         System.out.println(elapsedTime);
     }
