@@ -18,8 +18,8 @@ Assert.assertEquals(ImmutableSet.of("var0", "var1"), template.getParameterNames(
 
 Maven dependency 
 
-```
-  <repositories>
+```xml
+  	<repositories>
 		<repository>
 		    <id>jitpack.io</id>
 		    <url>https://jitpack.io</url>
