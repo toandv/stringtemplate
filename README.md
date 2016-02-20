@@ -1,6 +1,6 @@
 # StringTemplate
 
-Simple template that can embded paramters/variables and render text.
+Simple template that can embded parameters/variables and render text.
 
 ## Usage
 
