@@ -16,7 +16,7 @@ Simple template that can embded paramters/variables and render text.
 
 
 
-Maven dependency 
+## Maven dependency 
 
 ```xml
   	<repositories>
