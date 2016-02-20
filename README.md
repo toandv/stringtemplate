@@ -29,5 +29,5 @@ Simple template that can embded paramters/variables and render text.
 	<dependency>
 	    <groupId>com.github.toandv</groupId>
 	    <artifactId>template</artifactId>
-	    <version>0.1.0</version>
+	    <version>0.1.1</version>
 	</dependency>
